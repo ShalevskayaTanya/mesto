@@ -1,0 +1,28 @@
+.elements__items {
+    margin: 0 auto;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, auto);
+    grid-column-gap: 17px;
+    grid-row-gap: 20px;
+    max-width: 880px;
+    list-style: none;
+    justify-content: space-between;
+    justify-items: center;
+}
+
+@media screen and (max-width: 880px) {
+    .elements__items {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, auto);
+    grid-gap: 20px;
+    }
+}
+
+@media screen and (max-width: 620px) {
+    .elements__items{
+    grid-template-columns: 1fr;
+}
+}
+

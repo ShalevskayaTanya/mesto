@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./pages/index.css">
+    <title>Mesto</title>
+  </head>
+  <body class="page">
+    <header class="header">
+      <img class="logo" src="./images/logo.svg" alt="Логотип Место">
+    </header>
+    <main class="content">
+      <section class="profile">
+        <div class="profile__avatar-overlay">
+          <img
+            class="profile__avatar"
+            src="./images/1bfc569f8b6cc8e09684c59e53eb40b1.jpg"
+            alt="Аватар пользователя">
+        </div>
+        <div class="profile__info">
+          <div class="profile__info-title">
+            <h1 class="profile__title">Гарри Поттер</h1>
+            <button
+              type="button"
+              class="profile__edit-button profile__button"
+              aria-label="Редактировать профиль">
+            </button>
+          </div>
+          <p class="profile__subtitle">Мальчик, который выжил.</p>
+        </div>
+        <button
+          type="button"
+          class="profile__add-button profile__button"
+          aria-label="'Добавить новое фото">
+        </button>
+      </section>
+      <section class="elements">
+        <ul class="elements__items">
+          <li class="element">
+            <img
+              class="element__picture"
+              src="./images/ed00161cff818560935f679e8b9bd3e6e565a998r1-1280-1225v2_hq.jpg"
+              alt="Букля">
+            <div class="element__info">
+              <h2 class="element__name">Букля.</h2>
+              <div class="element__like">
+                <button
+                  class="element__like-button"
+                  aria-label="Нравится">
+                </button>
+              </div>
+            </div>
+          </li>
+          <li class="element">
+            <img
+              class="element__picture"
+              src="./images/field_image_harry-lightning-bolt.jpg"
+              alt="Шрам.">
+            <div class="element__info">
+              <h2 class="element__name">Шрам.</h2>
+              <div class="element__like">
+                <button
+                  class="element__like-button"
+                  aria-label="Нравится">
+                </button>
+              </div>
+            </div>
+          </li>
+          <li class="element">
+            <img
+              class="element__picture"
+              src="./images/iT7j7dmmb4Y.jpg"
+              alt="Гриффиндор">
+            <div class="element__info">
+              <h2 class="element__name">Гриффиндор.</h2>
+              <div class="element__like">
+                <button
+                  class="element__like-button"
+                  aria-label="Нравится">
+                </button>
+              </div>
+            </div>
+          </li>
+          <li class="element">
+            <img
+              class="element__picture"
+              src="./images/London - Harry Potter.jpg"
+              alt="Платформа 9 3/4">
+            <div class="element__info">
+              <h2 class="element__name">Платформа 9 3/4.</h2>
+              <div class="element__like">
+                <button
+                  class="element__like-button"
+                  aria-label="Нравится">
+                </button>
+              </div>
+            </div>
+          </li>
+          <li class="element">
+            <img
+              class="element__picture"
+              src="./images/MV5BM2RhOTZhMDktYmEzMi00YTA4LTk1ZWQtNDQwZjdmNzM4Y2JiL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMjk3NTUyOTc@._V1_.jpg"
+              alt="Снитч">
+            <div class="element__info">
+              <h2 class="element__name">Снитч.</h2>
+              <div class="element__like">
+                <button
+                  class="element__like-button"
+                  aria-label="Нравится">
+                </button>
+              </div>
+            </div>
+          </li>
+          <li class="element">
+            <img
+              class="element__picture"
+              src="./images/216771_or.jpg"
+              alt="Хогвартс">
+            <div class="element__info">
+              <h2 class="element__name">Хогвартс.</h2>
+              <div class="element__like">
+                <button
+                  class="element__like-button"
+                  aria-label="Нравится">
+                </button>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </main>
+    <div class="popup">
+      <div class="popup__container">
+        <h2 class="popup__title">Редактировать профиль</h2>
+        <button
+          type="button"
+          class="popup__close-button profile__button"
+          aria-label="Закрыть окно">
+        </button>
+        <form class="popup__form" name="profile__edit" novalidate>
+          <label for="name" class="popup__name">
+            <input
+              type="text"
+              class="popup__name-edit"
+              placeholder="Имя"
+              name="popup-name"
+              value="Гарри Поттер"
+              required>
+          </label>
+          <label for="about" name="profile__about">
+            <input
+              type="text"
+              class="popup__about-edit"
+              placeholder="О себе"
+              name="popup-about"
+              value="Мальчик, который выжил."
+              required>
+          </label>
+          <button
+            type="button"
+            class="popup__save-button profile__button"
+            aria-label="Сохранить изменения">Сохранить</button>
+        </form>
+      </div>
+    </div>
+    <footer class="footer">
+      <p class="footer__copyright">&copy; 2022. Mesto HP</p>
+    </footer>
+    <script src="./pages/index.js"></script>
+  </body>
+</html>

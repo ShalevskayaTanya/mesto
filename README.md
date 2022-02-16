@@ -5,4 +5,6 @@
 
 ### Ссылка на проект [Тут](https://shalevskayatanya.github.io/mesto/)
 
+#### Используемые технологии: Flex, Grid, Адаптивная верстка, JavaScript, Работа с DOM
+
 

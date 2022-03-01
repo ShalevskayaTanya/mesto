@@ -79,7 +79,7 @@ cardItems.append(...standartCard);
 // Выборка DOM - элементов
 //Редактирование профиля
 const popupEditElement = document.querySelector(".popup_type_edit-profile");
-const popupCloseEditElement = document.querySelector(".popup_close_edit-button");
+const popupCloseEditElement = document.querySelector(".popup_edit_close-button");
 const popupEditProfileElement = document.querySelector(".profile__edit-button");
 const nameInput = document.getElementById("name");
 const jobInput = document.getElementById("about");

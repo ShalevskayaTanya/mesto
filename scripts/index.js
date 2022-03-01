@@ -90,7 +90,7 @@ const formEditElement = document.querySelector(".popup__form-edit");
 //Карточки
 const popupAddElement = document.querySelector(".popup_type_add-card");
 const popupAddProfileElement = document.querySelector(".profile__add-button");
-const popupCloseAddElement = document.querySelector(".popup_close_add-button");
+const popupCloseAddElement = document.querySelector(".popup__add__close-button");
 const formAddElement = document.querySelector(".popup__form-add");
 const placeInput = document.getElementById("add");
 const linkInput = document.getElementById("link");

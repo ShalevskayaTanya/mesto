@@ -79,7 +79,7 @@ cardItems.append(...standartCard);
 // Выборка DOM - элементов
 //Редактирование профиля
 const popupEditElement = document.querySelector(".popup_type_edit-profile");
-const popupCloseEditElement = document.querySelector(".popup_edit_close-button");
+const popupCloseEditElement = document.querySelector(".popup__close_edit-button");
 const popupEditProfileElement = document.querySelector(".profile__edit-button");
 const nameInput = document.getElementById("name");
 const jobInput = document.getElementById("about");
@@ -90,7 +90,7 @@ const formEditElement = document.querySelector(".popup__form-edit");
 //Карточки
 const popupAddElement = document.querySelector(".popup_type_add-card");
 const popupAddProfileElement = document.querySelector(".profile__add-button");
-const popupCloseAddElement = document.querySelector(".popup_add_close-button");
+const popupCloseAddElement = document.querySelector(".popup__close_add-button");
 const formAddElement = document.querySelector(".popup__form-add");
 const placeInput = document.getElementById("add");
 const linkInput = document.getElementById("link");
@@ -98,7 +98,7 @@ const linkInput = document.getElementById("link");
 //Увеличение изображения
 const zoomImg = document.querySelector(".popup__picture");
 const subtitleImg = document.querySelector(".popup__caption");
-const popupZoom = document.querySelector(".popup__zoom");
+const popupZoom = document.querySelector(".popup_zoom");
 const closeZoomImg = popupZoom.querySelector(".popup__close-button");
 
 //Открытие попап увеличения изображения

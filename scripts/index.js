@@ -161,7 +161,6 @@ popupCloseImg.addEventListener("click", () => {
 });
 
 
-
 /* const closePopupClick = function (event) {
   console.log(event.target, event.currentTarget);
   if (event.target !== event.currentTarget) {

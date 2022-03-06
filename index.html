@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./pages/index.css">
+    <title>Mesto</title>
+  </head>
+  <body class="page">
+    <div class="root">
+    <header class="header">
+      <img class="logo" src="./images/logo.svg" alt="Логотип Место">
+    </header>
+    <main class="content">
+      <section class="profile">
+          <img
+            class="profile__avatar"
+            src="./images/1bfc569f8b6cc8e09684c59e53eb40b1.jpg"
+            alt="Аватар пользователя">
+        <div class="profile__info">
+          <div class="profile__info-title">
+            <h1 class="profile__title">Гарри Поттер</h1>
+            <button
+              type="button"
+              class="profile__edit-button button"
+              aria-label="Редактировать профиль">
+            </button>
+          </div>
+          <p class="profile__subtitle">Мальчик, который выжил.</p>
+        </div>
+        <button
+          type="button"
+          class="profile__add-button button"
+          aria-label="'Добавить новое фото">
+        </button>
+      </section>
+      <section class="elements">
+        <ul class="elements__items">
+          <template id="element-template"> 
+          <li class="element">
+            <img
+              class="element__picture">
+            <div class="element__info">
+              <h2 class="element__name"></h2>
+                <button
+                  class="element__like-button">
+                </button>
+                <button 
+                class="element__delete-button">
+            </button>  
+            </div>
+          </li>
+        </template> 
+        </ul>
+      </section>
+    </main>
+    <footer class="footer">
+      <p class="footer__copyright">&copy; 2022. Mesto HP</p>
+    </footer>
+  </div>
+    <div class="popup popup_type_edit-profile">
+      <div class="popup__container">
+        <h2 class="popup__title">Редактировать профиль</h2>
+        <button
+          type="button"
+          class="popup__close-button_type_edit popup__close-button button"
+          aria-label="Закрыть окно">
+        </button>
+        <form class="popup__form popup__form-edit" name="popup-form" novalidate>
+          <label for="name" class="popup__edit">
+            <input
+              type="text"
+              class="popup__input"
+              placeholder="Имя"
+              id="name"
+              name="name"
+              required>
+          </label>
+          <label for="about" class="popup__edit">
+            <input
+              type="text"
+              class="popup__input"
+              placeholder="О себе"
+              id="about"
+              name="about"
+              required>
+          </label>
+          <button
+            type="submit"
+            class="popup__submit-button button"
+            aria-label="Сохранить изменения">Сохранить</button>
+        </form>
+      </div>
+    </div>
+    <div class="popup popup_type_add-card">
+      <div class="popup__container">
+        <h2 class="popup__title">Новое место</h2>
+        <button 
+        type="button"
+        class="popup__close-button_type_add popup__close-button button"
+        aria-label="Закрыть окно">
+      </button>
+      <form class="popup__form popup__form-add" name="form-card" novalidate>
+        <label for="add" class="popup__edit">
+          <input
+            type="text"
+            class="popup__input"
+            placeholder="Название"
+            id="add"
+            name="add"
+            required>
+        </label>
+        <label for="link" class="popup__edit">
+          <input
+            type="url"
+            class="popup__input"
+            placeholder="Ссылка на изображение"
+            id="link"
+            name="link"
+            required>
+        </label>
+        <button
+            type="submit"
+            class="popup__submit-button button"
+            aria-label="Создать">Создать</button>
+      </form>
+      </div>
+    </div>
+    <div class="popup popup_zoom">
+        <figure class="popup__figure">
+            <img class="popup__picture" src="#" alt="Изображение">
+            <button           
+            type="button"
+            class="popup__close-button_type_img popup__close-button button"
+            aria-label="Закрыть окно">
+          </button>
+            <figcaption class="popup__caption"></figcaption>
+        </figure>
+    </div>
+    <script src="./scripts/index.js"></script>
+  </body>
+</html>

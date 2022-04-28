@@ -101,14 +101,25 @@ const subtitleImg = document.querySelector(".popup__caption");
 const popupZoom = document.querySelector(".popup_zoom");
 const popupCloseImg = document.querySelector(".popup__close-button_type_img");
 
+
 //Общая функция для открытия попап
 function showPopup(popup) {
   popup.classList.add("popup_opened");
+  document.addEventListener("keyup", ESCAPEpopup);
 }
 
 //Общая функция для закрытия попап
 function closePopup(popup) {
   popup.classList.remove("popup_opened");
+  document.removeEventListener("keyup", ESCAPEpopup);
+}
+
+//Закрытие через Esc
+function ESCAPEpopup (evt) {
+    if (evt.key === 'Escape') {
+        const closePopupEsc = document.querySelector(".popup_opened")
+        closePopup(closePopupEsc);
+    }
 }
 
 //Открытие попап редактирования профиля
@@ -160,12 +171,38 @@ popupCloseImg.addEventListener("click", () => {
   closePopup(popupZoom);
 });
 
+//Закрытие Редактирование профиля Overlay
+const closeEditOverlay = function (event) {
+    console.log(event.target, event.currentTarget);
+    if (event.target !== event.currentTarget) {
+      return;
+    }
+    closePopup(popupEdit);
+  };
 
-/* const closePopupClick = function (event) {
-  console.log(event.target, event.currentTarget);
-  if (event.target !== event.currentTarget) {
-    return;
-  }
-  closePopup();
-};
-*/
+popupEdit.addEventListener("click", closeEditOverlay);
+
+//Закрытие Нового места Overlay
+const closeAddOverlay = function (event) {
+    if (event.target !== event.currentTarget) {
+        return;
+    }
+    closePopup(popupAdd);
+}
+
+popupAdd.addEventListener("click", closeAddOverlay);
+
+//Закрытие Изображения Overlay
+const closeImgOverlay = function (event) {
+    if (event.target !== event.currentTarget) {
+        return;
+    }
+    closePopup(popupZoom);
+}
+
+popupZoom.addEventListener("click", closeImgOverlay);
+
+
+
+
+

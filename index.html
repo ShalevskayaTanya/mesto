@@ -66,24 +66,30 @@
           class="popup__close-button_type_edit popup__close-button button"
           aria-label="Закрыть окно">
         </button>
-        <form class="popup__form popup__form-edit" name="popup-form" novalidate>
+        <form class="popup__form popup__form-edit" name="users" novalidate>
           <label for="name" class="popup__edit">
             <input
               type="text"
-              class="popup__input"
+              class="popup__input popup__input-name"
               placeholder="Имя"
               id="name"
               name="name"
+              minlength="2"
+              maxlength="40"
               required>
+              <span id="name-error" class="form__input-error name-error"></span>
           </label>
           <label for="about" class="popup__edit">
             <input
               type="text"
-              class="popup__input"
+              class="popup__input popup__input-about"
               placeholder="О себе"
               id="about"
               name="about"
+              minlength="2"
+              maxlength="200"
               required>
+              <span id="about-error" class="form__input-error abour-error"></span>
           </label>
           <button
             type="submit"
@@ -100,24 +106,28 @@
         class="popup__close-button_type_add popup__close-button button"
         aria-label="Закрыть окно">
       </button>
-      <form class="popup__form popup__form-add" name="form-card" novalidate>
+      <form class="popup__form popup__form-add" name="place" novalidate>
         <label for="add" class="popup__edit">
           <input
             type="text"
-            class="popup__input"
+            class="popup__input popup__input-add"
             placeholder="Название"
             id="add"
             name="add"
+            minlength="2"
+            maxlength="30"
             required>
+            <span id="add-error" class="form__input-error add-error"></span>
         </label>
         <label for="link" class="popup__edit">
           <input
             type="url"
-            class="popup__input"
+            class="popup__input popup__input-url"
             placeholder="Ссылка на изображение"
             id="link"
             name="link"
             required>
+            <span id="link-error" class="form__input-error link-error"></span>
         </label>
         <button
             type="submit"
@@ -138,5 +148,6 @@
         </figure>
     </div>
     <script src="./scripts/index.js"></script>
+    <script src="./scripts/validation.js"></script>
   </body>
 </html>

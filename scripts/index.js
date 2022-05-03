@@ -1,32 +1,5 @@
 //Добавление стандартных карточек
 
-const initialCards = [
-  {
-    name: "Букля.",
-    link: "./images/ed00161cff818560935f679e8b9bd3e6e565a998r1-1280-1225v2_hq.jpg",
-  },
-  {
-    name: "Шрам.",
-    link: "./images/field_image_harry-lightning-bolt.jpg",
-  },
-  {
-    name: "Гриффиндор.",
-    link: "./images/iT7j7dmmb4Y.jpg",
-  },
-  {
-    name: "Сливочное пиво.",
-    link: "./images/slivochnoe-pivo-iz-garri-pottera-retsepty-prigotovleniya-lyubimogo-bezalkogolnogo-napitka-yunogo-volshebnika.jpg",
-  },
-  {
-    name: "Снитч.",
-    link: "./images/MV5BM2RhOTZhMDktYmEzMi00YTA4LTk1ZWQtNDQwZjdmNzM4Y2JiL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMjk3NTUyOTc@._V1_.jpg",
-  },
-  {
-    name: "Хогвартс.",
-    link: "./images/216771_or.jpg",
-  },
-];
-
 // Выборка DOM - элементов карточки
 const cardTemplate = document.querySelector("#element-template").content;
 const cardItems = document.querySelector(".elements__items");
@@ -71,10 +44,10 @@ function createCard(nameValue, linkValue) {
 }
 
 //Добавление стандартных карточек
-const standartCard = initialCards.map(function (card) {
+const renderCard = initialCards.map(function (card) {
   return createCard(card.name, card.link);
 });
-cardItems.append(...standartCard);
+cardItems.append(...renderCard);
 
 // Выборка DOM - элементов
 //Редактирование профиля
@@ -105,17 +78,17 @@ const popupCloseImg = document.querySelector(".popup__close-button_type_img");
 //Общая функция для открытия попап
 function showPopup(popup) {
   popup.classList.add("popup_opened");
-  document.addEventListener("keyup", ESCAPEpopup);
+  document.addEventListener("keyup", closeByEscape);
 }
 
 //Общая функция для закрытия попап
 function closePopup(popup) {
   popup.classList.remove("popup_opened");
-  document.removeEventListener("keyup", ESCAPEpopup);
+  document.removeEventListener("keyup", closeByEscape);
 }
 
 //Закрытие через Esc
-function ESCAPEpopup (evt) {
+function closeByEscape (evt) {
     if (evt.key === 'Escape') {
         const closePopupEsc = document.querySelector(".popup_opened")
         closePopup(closePopupEsc);
@@ -172,37 +145,15 @@ popupCloseImg.addEventListener("click", () => {
 });
 
 //Закрытие Редактирование профиля Overlay
-const closeEditOverlay = function (event) {
-    console.log(event.target, event.currentTarget);
-    if (event.target !== event.currentTarget) {
-      return;
-    }
-    closePopup(popupEdit);
-  };
-
-popupEdit.addEventListener("click", closeEditOverlay);
-
-//Закрытие Нового места Overlay
-const closeAddOverlay = function (event) {
-    if (event.target !== event.currentTarget) {
-        return;
-    }
-    closePopup(popupAdd);
+function overlayClosePopup (event) {
+  if (event.target === event.currentTarget) {
+    closePopup(event.target);
+  }
 }
 
-popupAdd.addEventListener("click", closeAddOverlay);
-
-//Закрытие Изображения Overlay
-const closeImgOverlay = function (event) {
-    if (event.target !== event.currentTarget) {
-        return;
-    }
-    closePopup(popupZoom);
-}
-
-popupZoom.addEventListener("click", closeImgOverlay);
-
-
+popupEdit.addEventListener("click", overlayClosePopup);
+popupAdd.addEventListener("click", overlayClosePopup);
+popupZoom.addEventListener("click", overlayClosePopup);
 
 
 

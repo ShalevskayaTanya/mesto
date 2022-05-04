@@ -44,10 +44,10 @@ function createCard(nameValue, linkValue) {
 }
 
 //Добавление стандартных карточек
-const renderCard = initialCards.map(function (card) {
+const standartCards = initialCards.map(function (card) {
   return createCard(card.name, card.link);
 });
-cardItems.append(...renderCard);
+cardItems.append(...standartCards);
 
 // Выборка DOM - элементов
 //Редактирование профиля
@@ -135,6 +135,13 @@ function saveCard(event) {
   closePopup(popupAdd);
 
   formAddElement.reset();
+  disableSubmitButton();
+}
+
+function disableSubmitButton () {
+  const disableButton = popupAdd.querySelector('.popup__submit-button');
+  disableButton.classList.add('popup__submit-button_inactive');
+  disableButton.setAttribute('disabled', 'disabled');
 }
 
 formAddElement.addEventListener("submit", saveCard);

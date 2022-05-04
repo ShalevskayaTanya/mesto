@@ -1,4 +1,6 @@
 .popup__edit {
     display: flex;
-    margin-bottom: 30px;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
 }

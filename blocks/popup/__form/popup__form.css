@@ -1,4 +1,7 @@
 .popup__form {
+  margin: auto;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
 }

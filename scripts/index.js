@@ -17,10 +17,10 @@ function createCard(nameValue, linkValue) {
   cardName.textContent = nameValue;
 
   //Лайк на карточку
-  const toggleLikes = function () {
+  const handleToggleLike = function () {
     cardLike.classList.toggle("element__like-button_active");
   };
-  cardLike.addEventListener("click", toggleLikes);
+  cardLike.addEventListener("click", handleToggleLike);
 
   //Удаление карточки
   const deleteCard = function (event) {

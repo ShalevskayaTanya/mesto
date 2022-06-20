@@ -1,53 +1,10 @@
-//Добавление стандартных карточек
+import { initialCards, validConfig } from './constans.js'
+import FormValidator from './validate.js';
+import { Card } from './card.js'
 
 // Выборка DOM - элементов карточки
 const cardTemplate = document.querySelector("#element-template").content;
 const cardItems = document.querySelector(".elements__items");
-
-//Возвращение карточек через js
-function createCard(nameValue, linkValue) {
-  const card = cardTemplate.querySelector(".element").cloneNode(true);
-  const cardImage = card.querySelector(".element__picture");
-  const cardName = card.querySelector(".element__name");
-  const cardLike = card.querySelector(".element__like-button");
-  const cardDelete = card.querySelector(".element__delete-button");
-
-  cardImage.src = linkValue;
-  cardImage.alt = nameValue;
-  cardName.textContent = nameValue;
-
-  //Лайк на карточку
-  const handleToggleLike = function () {
-    cardLike.classList.toggle("element__like-button_active");
-  };
-  cardLike.addEventListener("click", handleToggleLike);
-
-  //Удаление карточки
-  const deleteCard = function (event) {
-    event.target.closest(".element").remove();
-  };
-
-  cardDelete.addEventListener("click", deleteCard);
-
-  //Подставляет значения к изображению
-  const zoomImage = function (event) {
-    showPopup(popupZoom);
-    zoomImg.src = event.target.src;
-    zoomImg.alt = event.target.alt;
-    subtitleImg.textContent = event.target.alt;
-  };
-
-  //Увеличение изображения с подставлением значений
-  cardImage.addEventListener("click", zoomImage);
-
-  return card;
-}
-
-//Добавление стандартных карточек
-const standartCards = initialCards.map(function (card) {
-  return createCard(card.name, card.link);
-});
-cardItems.append(...standartCards);
 
 // Выборка DOM - элементов
 //Редактирование профиля
@@ -75,17 +32,22 @@ const popupZoom = document.querySelector(".popup_zoom");
 const popupCloseImg = document.querySelector(".popup__close-button_type_img");
 
 
+
+
 //Общая функция для открытия попап
 function showPopup(popup) {
   popup.classList.add("popup_opened");
   document.addEventListener("keyup", closeByEscape);
 }
 
+
 //Общая функция для закрытия попап
 function closePopup(popup) {
   popup.classList.remove("popup_opened");
   document.removeEventListener("keyup", closeByEscape);
 }
+
+
 
 //Закрытие через Esc
 function closeByEscape (evt) {
@@ -97,9 +59,10 @@ function closeByEscape (evt) {
 
 //Открытие попап редактирования профиля
 popupEditBtn.addEventListener("click", function showPopupedit() {
-  showPopup(popupEdit);
+  formValidators[formEditElement.name]
   nameInput.value = currentName.textContent;
   jobInput.value = currentAbout.textContent;
+  showPopup(popupEdit);
 });
 
 //Закрытие попап редактирования профия
@@ -119,6 +82,7 @@ formEditElement.addEventListener("submit", handleProfileFormSubmit);
 
 //Открытие попап добавления карточек
 popupAddBtn.addEventListener("click", () => {
+  formValidators[formAddElement.name]
   showPopup(popupAdd);
 });
 
@@ -127,10 +91,28 @@ popupCloseAdd.addEventListener("click", () => {
   closePopup(popupAdd);
 });
 
+const zoomImage = function (data) {
+    const {name, link} = data;
+    zoomImg.src = link;
+    zoomImg.alt = name;
+    subtitleImg.textContent = name;
+    showPopup(popupZoom);
+  };
+
+//Возвращение карточек через js
+function createCard(data) {
+const card = new Card (data, "#element-template", zoomImage);
+return card.generateCardElement();
+};
+
+function renderCard(cardElement) {
+    cardItems.prepend(cardElement);
+}
+
 //Сохранение добавленного изображения
 function saveCard(event) {
   event.preventDefault();
-  cardItems.prepend(createCard(placeInput.value, linkInput.value));
+  renderCard(createCard({name: placeInput.value, link: linkInput.value}));
 
   closePopup(popupAdd);
 
@@ -158,9 +140,19 @@ function overlayClosePopup (event) {
   }
 }
 
+const formValidators = {};
+
+Array.from(document.forms).forEach((formElement) => {
+ formValidators[formElement.name] = new FormValidator(validConfig, formElement);
+ formValidators[formElement.name].enableValidation();
+})
+
 popupEdit.addEventListener("click", overlayClosePopup);
 popupAdd.addEventListener("click", overlayClosePopup);
 popupZoom.addEventListener("click", overlayClosePopup);
 
+initialCards.reverse().forEach((item) => {
+    renderCard(createCard(item));
+}) 
 
 

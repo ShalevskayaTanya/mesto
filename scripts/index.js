@@ -1,6 +1,6 @@
 import { initialCards, validConfig } from './constans.js'
-import FormValidator from './validate.js';
-import { Card } from './card.js'
+import FormValidator from './FormValidator.js';
+import { Card } from './Card.js'
 
 // Выборка DOM - элементов карточки
 const cardTemplate = document.querySelector("#element-template").content;
@@ -59,7 +59,7 @@ function closeByEscape (evt) {
 
 //Открытие попап редактирования профиля
 popupEditBtn.addEventListener("click", function showPopupedit() {
-  formValidators[formEditElement.name]
+  formValidators[formEditElement.name].cleanUpForm();
   nameInput.value = currentName.textContent;
   jobInput.value = currentAbout.textContent;
   showPopup(popupEdit);
@@ -82,7 +82,7 @@ formEditElement.addEventListener("submit", handleProfileFormSubmit);
 
 //Открытие попап добавления карточек
 popupAddBtn.addEventListener("click", () => {
-  formValidators[formAddElement.name]
+  formValidators[formAddElement.name].cleanUpForm();
   showPopup(popupAdd);
 });
 
@@ -120,11 +120,11 @@ function saveCard(event) {
   disableSubmitButton();
 }
 
-function disableSubmitButton () {
+/*function disableSubmitButton () {
   const disableButton = popupAdd.querySelector('.popup__submit-button');
   disableButton.classList.add('popup__submit-button_inactive');
   disableButton.setAttribute('disabled', 'disabled');
-}
+}*/
 
 formAddElement.addEventListener("submit", saveCard);
 

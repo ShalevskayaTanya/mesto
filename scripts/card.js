@@ -25,9 +25,9 @@ _getCard() {
 }
 
 _setData() {
-    this._element.querySelector('.element__picture').src = this._link
-    this._element.querySelector('.element__name').alt = this._name;
-    this._element.querySelector('.element__name').textContent = this._name;
+    this._cardImage.src = this._link
+    this._cardImage.alt = this._name;
+    this._cardName.textContent = this._name;
 }
 
 generateCardElement() {

@@ -117,7 +117,6 @@ function saveCard(event) {
   closePopup(popupAdd);
 
   formAddElement.reset();
-  disableSubmitButton();
 }
 
 /*function disableSubmitButton () {

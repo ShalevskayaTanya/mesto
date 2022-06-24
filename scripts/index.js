@@ -59,9 +59,9 @@ function closeByEscape (evt) {
 
 //Открытие попап редактирования профиля
 popupEditBtn.addEventListener("click", function showPopupedit() {
-  formValidators[formEditElement.name].cleanUpForm();
   nameInput.value = currentName.textContent;
   jobInput.value = currentAbout.textContent;
+  formValidators[formEditElement.name].cleanUpForm();
   showPopup(popupEdit);
 });
 
@@ -118,12 +118,6 @@ function saveCard(event) {
 
   formAddElement.reset();
 }
-
-/*function disableSubmitButton () {
-  const disableButton = popupAdd.querySelector('.popup__submit-button');
-  disableButton.classList.add('popup__submit-button_inactive');
-  disableButton.setAttribute('disabled', 'disabled');
-}*/
 
 formAddElement.addEventListener("submit", saveCard);
 

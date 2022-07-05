@@ -32,3 +32,23 @@ export const initialCards = [
     inputErrorClass: "popup__input_type_error",
     errorClass: "popup__input-error_active",
 }
+
+export const formConfiguration = {
+    inputSelector: '.popup__input',
+    submitButtonSelector: ".popup__submit-button",
+    formSelector: 'popup__form',
+}
+
+export const popupConfiguration = {
+    activeModifier: 'popup_opened',
+    closeBtnSelector: 'popup__close-button',
+
+}
+
+export const cardsContainerSelector = 'elements__items';
+
+export const newPlacePopupSelector = 'popup_type_add-card';
+export const profilePopupSelector = 'popup_type_edit-profile';
+export const imagePopupSelector = 'popup_zoom';
+export const newPlaceFormName = 'place';
+export const profileFormName = 'users';

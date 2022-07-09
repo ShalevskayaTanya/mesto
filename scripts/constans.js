@@ -34,21 +34,35 @@ export const initialCards = [
 }
 
 export const formConfiguration = {
-    inputSelector: '.popup__input',
-    submitButtonSelector: ".popup__submit-button",
+    inputSelector: 'popup__input',
     formSelector: 'popup__form',
 }
 
 export const popupConfiguration = {
-    activeModifier: 'popup_opened',
+    openModifier: 'popup_opened',
     closeBtnSelector: 'popup__close-button',
+}
 
+export const zoomConfiguration = {
+    imageSelector: 'popup__picture',
+    captionSelector: 'popup__caption',
 }
 
 export const cardsContainerSelector = 'elements__items';
 
+//Селекторы попапов
 export const newPlacePopupSelector = 'popup_type_add-card';
 export const profilePopupSelector = 'popup_type_edit-profile';
 export const imagePopupSelector = 'popup_zoom';
+
 export const newPlaceFormName = 'place';
 export const profileFormName = 'users';
+
+//Кнопки редактирования и добавления
+export const editButtonSelector = 'profile__edit-button';
+export const addButtonSelector = 'profile__add-button';
+
+export const profileConfig = {
+    titleSelector: 'profile__title',
+    jobSelector: 'profile__about',
+}

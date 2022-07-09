@@ -1,4 +1,4 @@
-export class Card {
+export default class Card {
     constructor(data, selectorTemplate, handlerOpenImg) {
         const {name, link} = data;
         this._selectorTemplate = selectorTemplate;

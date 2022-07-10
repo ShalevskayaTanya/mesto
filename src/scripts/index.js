@@ -1,4 +1,5 @@
 console.log('Hello world!');
+import '../pages/index.css';
 import { initialCards, 
          validConfig, 
          cardsContainerSelector,
@@ -11,14 +12,14 @@ import { initialCards,
          zoomConfiguration,
          popupConfiguration,
          formConfiguration,
-         } from './scripts/constans.js'
+         } from '../scripts/constans.js'
 
-import FormValidator from './scripts/FormValidator.js';
-import Card from './scripts/Card.js'
-import PopupWithForm from './scripts/PopupWithForm.js';
-import PopupWithImage from './scripts/PopupWithImage.js';
-import Section from './scripts/Section.js';
-import UserInfo from './scripts/UserInfo.js';
+import FormValidator from '../scripts/FormValidator.js';
+import Card from '../scripts/Card.js'
+import PopupWithForm from '../scripts/PopupWithForm.js';
+import PopupWithImage from '../scripts/PopupWithImage.js';
+import Section from '../scripts/Section.js';
+import UserInfo from '../scripts/UserInfo.js';
 
 // Выборка DOM - элементов
 

@@ -1,12 +1,12 @@
 import Popup from "./Popup.js";
 
 export default class PopupWithForm extends Popup {
-    constructor(popupSelector, popupConfig, { formWithForm, inputWithForm }, submitHandlerCallBack, resetErrorsCallBack, getInfoCallBack = null) {
+    constructor(popupSelector, popupConfig, submitHandlerCallBack, resetErrorsCallBack, getInfoCallBack = null) {
         super(popupSelector, popupConfig);
-        this._form = this._popupElement.querySelector(`.${formWithForm}`);
+        this._form = this._popupElement.querySelector('.popup__form');
         this._submitHandler = submitHandlerCallBack;
         this._getInfoHandler = getInfoCallBack;
-        this._inputList = Array.from(this._popupElement.querySelectorAll(`.${inputWithForm}`));
+        this._inputList = Array.from(this._popupElement.querySelectorAll('.popup__input'));
         this._resetErrorsHandler = resetErrorsCallBack;
         this.open = this.open.bind(this);
         this.close = this.close.bind(this);
@@ -21,6 +21,7 @@ export default class PopupWithForm extends Popup {
     }
 
     _getInputValues () {
+
         const formValues = {};
         this._inputList.forEach(input => {
         formValues[input.name.slice(6)] = input.value;

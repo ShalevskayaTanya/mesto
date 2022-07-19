@@ -48,9 +48,9 @@ export const formConfiguration = {
 export const cardsContainerSelector = 'elements__items';
 
 //Селекторы попапов
-export const newPlacePopupSelector = 'popup_type_add-card';
-export const profilePopupSelector = 'popup_type_edit-profile';
-export const imagePopupSelector = 'popup_zoom';
+export const newPlacePopupSelector = '.popup_type_add-card';
+export const profilePopupSelector = '.popup_type_edit-profile';
+export const imagePopupSelector = '.popup_zoom';
 
 export const newPlaceFormName = 'place';
 export const profileFormName = 'users';
@@ -60,6 +60,6 @@ export const buttonEditSelector = 'profile__edit-button';
 export const buttonAddSelector = 'profile__add-button';
 
 export const profileConfig = {
-    titleSelector: 'profile__title',
-    jobSelector: 'profile__about',
+    titleSelector: '.profile__title',
+    jobSelector: '.profile__about',
 }
